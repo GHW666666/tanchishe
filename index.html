@@ -3,9 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>贪吃蛇</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url(./bg.png) no-repeat;
+            background-size: cover;
+        }
+        .btbox{
+            top: 20px;
+            left: 100px;
+            width: 100px;
+            height: 500px;
+            position: fixed;
+            display: flex;
+             flex-direction: column; 
+            justify-content: space-evenly;
+        }
+        .bt{
+            height: 60px;
+            width: 150px;
+            background-color: orange;
+            color: aliceblue;
+            font-size: large;
+            border-radius: 20px;
+
+        }
+        .map{
+            width: 1300px;
+            height: 600px;
+            position: fixed;
+            bottom: 0px;
+            right: 30px;
+            top: 10%;
+            box-shadow: 0px 0px 50px greenyellow;
+        }
+        .map div{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            border-radius: 50%;
+            background:-webkit-repeating-radial-gradient(yellow,orange) ;
+        }
+        div.head{
+            background: -webkit-repeating-radial-gradient(orange,yellow);
+        }
+        div.food{
+            right: 0px;
+            background: -webkit-repeating-radial-gradient(rgb(35, 244, 3),white);
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="btbox">
+        <button class="bt" id="start">开始</button>
+        <button class="bt" id="pause">暂停</button>
+        <button class="bt" id="restart">结束</button>
+    </div>
+    <div class="map">
+    </div> 
+    <script src="food.js"></script>
+    <script src="snake.js"></script>
+    <script src="game.js"></script>
+    <script>
+       const game = new Game(".map")
+       const start = document.getElementById("start")
+       const pause = document.querySelector("#pause")
+       const restart = document.getElementById("restart")
+       start.onclick = function(){
+        game.start()
+       }
+       pause.onclick = function(){
+        game.pause()
+       }
+       restart.onclick = function(){
+        game.restart()
+       }
+       document.onkeydown = function(e) {
+        
+        switch(e.keyCode){
+            case 37:game.change("left")
+            alert(1)
+            break;
+            case 38:game.change("top")
+             break;
+            case 39:game.change("right") 
+            break;
+            case 40:game.change("bottom")
+             break;
+        }
+
+       }
+    </script>
 </body>
 </html>
