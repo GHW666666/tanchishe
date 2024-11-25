@@ -15,7 +15,7 @@ class Game{
            if(this.snake.isdie()){
                clearInterval(this.timer)
            }
-       },500)
+       },100)
    }
 pause(){
     clearInterval(this.timer)
