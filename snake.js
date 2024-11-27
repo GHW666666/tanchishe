@@ -38,7 +38,7 @@ class Snake{
         div.style.top=pos.y+"px"
         this.map.appendChild(div)
         
-    }  
+    }
     createsanke(){
         for(let i=0;i<4;i++){
             this.createhead()

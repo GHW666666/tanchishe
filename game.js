@@ -3,7 +3,7 @@ class Game{
        this.map=document.querySelector(select)
        this.food=new Food(select)
        this.snake=new Snake(select)
-        this.timer=0
+       this.timer=0
     }
    start(){
        this.timer=setInterval(()=>{

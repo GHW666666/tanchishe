@@ -17,21 +17,21 @@
         .btbox{
             top: 20px;
             left: 100px;
-            width: 100px;
+            width: 200px;
             height: 500px;
             position: fixed;
             display: flex;
-             flex-direction: column; 
+            flex-direction: column; 
             justify-content: space-evenly;
         }
         .bt{
             height: 60px;
             width: 150px;
             background-color: orange;
-            color: aliceblue;
+            color: black;
             font-size: large;
             border-radius: 20px;
-
+            background: url(./bt2.png) no-repeat;
         }
         .map{
             width: 1300px;
@@ -40,7 +40,7 @@
             bottom: 0px;
             right: 30px;
             top: 10%;
-            box-shadow: 0px 0px 50px greenyellow;
+            box-shadow: 0px 0px 50px black;
         }
         .map div{
             width: 20px;
@@ -48,13 +48,16 @@
             position: absolute;
             border-radius: 50%;
             background:-webkit-repeating-radial-gradient(yellow,orange) ;
+            background: url("map1.png");
         }
         div.head{
             background: -webkit-repeating-radial-gradient(orange,yellow);
+            background: url("map1.png") ;
         }
         div.food{
             right: 0px;
             background: -webkit-repeating-radial-gradient(rgb(35, 244, 3),white);
+            background: url(food.png);
         }
     </style>
 </head>
@@ -63,6 +66,7 @@
         <button class="bt" id="start">开始</button>
         <button class="bt" id="pause">暂停</button>
         <button class="bt" id="restart">结束</button>
+        <audio class="music" src="music.mp4"></audio>
     </div>
     <div class="map">
     </div> 
@@ -72,16 +76,20 @@
     <script>
        const game = new Game(".map")
        const start = document.getElementById("start")
-       const pause = document.querySelector("#pause")
+       const pause = document.getElementById("pause")
        const restart = document.getElementById("restart")
+       const music = document.querySelector(".music")
        start.onclick = function(){
         game.start()
+       music.play()
        }
        pause.onclick = function(){
         game.pause()
+       music.pause()
        }
        restart.onclick = function(){
         game.restart()
+       music.pause()
        }
        document.onkeydown = function(e) {
         
